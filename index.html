@@ -1,19 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>I Love You ❤️</title>
-  <style>
-    body { 
-      text-align:center; 
-      background-color:#ffe6e6; 
-      font-family:sans-serif; 
-      margin-top:50px;
-    }
-    h1 { color:red; font-size:50px; }
-  </style>
+<meta charset="UTF-8">
+<title>I Love You ❤️</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background-color: #ffe6e6;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  h1 {
+    position: absolute;
+    font-size: 60px;
+    color: red;
+    z-index: 10;
+  }
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    transform: rotate(45deg);
+    animation: float 4s linear infinite;
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+  }
+  .heart::before { top: -10px; left: 0; }
+  .heart::after { left: 10px; top: 0; }
+
+  @keyframes float {
+    0% { transform: translateY(0) rotate(45deg); opacity:1; }
+    100% { transform: translateY(-700px) rotate(45deg); opacity:0; }
+  }
+</style>
 </head>
 <body>
-  <h1>I ❤️ You</h1>
-  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Love Animation">
+<h1>I ❤️ You</h1>
+
+<script>
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.style.left = Math.random() * window.innerWidth + 'px';
+  heart.style.width = 20 + Math.random() * 20 + 'px';
+  heart.style.height = heart.style.width;
+  heart.style.animationDuration = 3 + Math.random() * 2 + 's';
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I Love You ❤️</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background-color: #ffe6e6;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  h1 {
+    position: absolute;
+    font-size: 60px;
+    color: red;
+    z-index: 10;
+  }
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    transform: rotate(45deg);
+    animation: float 4s linear infinite;
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+  }
+  .heart::before { top: -10px; left: 0; }
+  .heart::after { left: 10px; top: 0; }
+
+  @keyframes float {
+    0% { transform: translateY(0) rotate(45deg); opacity:1; }
+    100% { transform: translateY(-700px) rotate(45deg); opacity:0; }
+  }
+</style>
+</head>
+<body>
+<h1>I ❤️ You</h1>
+
+<script>
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.style.left = Math.random() * window.innerWidth + 'px';
+  heart.style.width = 20 + Math.random() * 20 + 'px';
+  heart.style.height = heart.style.width;
+  heart.style.animationDuration = 3 + Math.random() * 2 + 's';
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
 </body>
 </html>
