@@ -2,138 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>I Love You ❤️</title>
+<title>I Love You zuzu ❤️</title>
 <style>
   body {
     margin: 0;
     height: 100vh;
-    background-color: #ffe6e6;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: sans-serif;
+    background: linear-gradient(135deg, #ffe6e6, #fff0f5);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
   }
+
   h1 {
     position: absolute;
     font-size: 60px;
-    color: red;
+    color: #ff0040;
+    text-shadow: 2px 2px #fff, 0 0 20px pink;
+    animation: bounce 1s infinite alternate;
     z-index: 10;
   }
-  .heart {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    transform: rotate(45deg);
-    animation: float 4s linear infinite;
-  }
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    border-radius: 50%;
-  }
-  .heart::before { top: -10px; left: 0; }
-  .heart::after { left: 10px; top: 0; }
 
-  @keyframes float {
-    0% { transform: translateY(0) rotate(45deg); opacity:1; }
-    100% { transform: translateY(-700px) rotate(45deg); opacity:0; }
+  @keyframes bounce {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+  }
+
+  .heart, .emoji {
+    position: absolute;
+    font-size: 24px;
+    animation: floatUp linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity:1; }
+    100% { transform: translateY(-700px) rotate(360deg); opacity:0; }
   }
 </style>
 </head>
 <body>
+
 <h1>I ❤️ You</h1>
 
 <script>
-function createHeart() {
-  const heart = document.createElement('div');
-  heart.className = 'heart';
-  heart.style.left = Math.random() * window.innerWidth + 'px';
-  heart.style.width = 20 + Math.random() * 20 + 'px';
-  heart.style.height = heart.style.width;
-  heart.style.animationDuration = 3 + Math.random() * 2 + 's';
-  document.body.appendChild(heart);
+const emojis = ['💖','💘','😍','🥰','😂','😜','😎','💞'];
 
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
+function createHeartOrEmoji() {
+  const element = document.createElement('div');
+  element.className = Math.random() < 0.6 ? 'heart' : 'emoji';
+  element.innerText = element.className === 'heart' ? '❤️' : emojis[Math.floor(Math.random()*emojis.length)];
+  
+  element.style.left = Math.random() * window.innerWidth + 'px';
+  element.style.fontSize = 20 + Math.random() * 30 + 'px';
+  element.style.animationDuration = 3 + Math.random() * 3 + 's';
+  element.style.color = element.className === 'heart' ? (Math.random() < 0.5 ? 'red' : 'pink') : 'orange';
+
+  document.body.appendChild(element);
+
+  setTimeout(() => element.remove(), 6000);
 }
 
-setInterval(createHeart, 300);
+setInterval(createHeartOrEmoji, 250);
 </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>I Love You ❤️</title>
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    background-color: #ffe6e6;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: sans-serif;
-  }
-  h1 {
-    position: absolute;
-    font-size: 60px;
-    color: red;
-    z-index: 10;
-  }
-  .heart {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    transform: rotate(45deg);
-    animation: float 4s linear infinite;
-  }
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    border-radius: 50%;
-  }
-  .heart::before { top: -10px; left: 0; }
-  .heart::after { left: 10px; top: 0; }
 
-  @keyframes float {
-    0% { transform: translateY(0) rotate(45deg); opacity:1; }
-    100% { transform: translateY(-700px) rotate(45deg); opacity:0; }
-  }
-</style>
-</head>
-<body>
-<h1>I ❤️ You</h1>
-
-<script>
-function createHeart() {
-  const heart = document.createElement('div');
-  heart.className = 'heart';
-  heart.style.left = Math.random() * window.innerWidth + 'px';
-  heart.style.width = 20 + Math.random() * 20 + 'px';
-  heart.style.height = heart.style.width;
-  heart.style.animationDuration = 3 + Math.random() * 2 + 's';
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
-}
-
-setInterval(createHeart, 300);
-</script>
 </body>
 </html>
